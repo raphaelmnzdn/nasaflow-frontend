@@ -7,6 +7,7 @@ import SuccessPage from "./SuccessPage";
 import AdminPage from "./AdminPage";
 import AdminPagePro from "./AdminPagePro";
 import AdminLogin from "./AdminLogin";
+import AboutPage from "./AboutPage";
 
 
 
@@ -18,15 +19,20 @@ function App() {
     <>
       {/* Barre de navigation */}
       <header className="navbar">
-        <div className="nasaflow-container">
-          <Link to="/" className="logo">NasaFlow</Link>
+  <div className="nasaflow-container">
+    <Link to="/" className="logo">NasaFlow</Link>
 
-          <Link to="/panier" className="cart-button">
-            🛒 Panier
-            {totalItems > 0 && <span className="cart-badge">{totalItems}</span>}
-          </Link>
-        </div>
-      </header>
+    <div style={{ display: "flex", gap: "1rem" }}>
+      <Link to="/a-propos" className="cart-button">À propos</Link>
+
+      <Link to="/panier" className="cart-button">
+        🛒 Panier
+        {totalItems > 0 && <span className="cart-badge">{totalItems}</span>}
+      </Link>
+    </div>
+  </div>
+</header>
+
 
       {/* Routes */}
       <Routes>
@@ -36,7 +42,7 @@ function App() {
         <Route path="/admin" element={<AdminPage />} />
         <Route path="/admin-pro" element={<AdminPagePro />} />
         <Route path="/admin-login" element={<AdminLogin />} />
-
+        <Route path="/a-propos" element={<AboutPage />} />
       </Routes>
     </>
   );
