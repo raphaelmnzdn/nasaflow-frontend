@@ -3,7 +3,7 @@ import { useCart } from "./CartContext";
 import { Link } from "react-router-dom";
 import { loadStripe } from "@stripe/stripe-js";
 
-const stripePromise = loadStripe("pk_test_51RHDZQFJWPRkSATup6EDc3iFZtYyPqBfZ8K2bMvA8eOm78jQmA1sO4mlXh1TFkQ6l01b6XWRGYWRhzgs3PnEJ1w000M4D4DlVJ"); // Remplace avec ta clé publique Stripe
+const stripePromise = loadStripe("pk_live_51RHDZFFKPR2fb0mT4srobIKnhb7oSq3FKzTwaYy5kh5aE2C56IVxV3IB9RSokqDOZesNHn8YabbPVH8PbnWYD17G00eVrodf1y"); // Remplace avec ta clé publique Stripe
 
 export default function CartPage() {
   const { cart, clearCart } = useCart();
