@@ -11,7 +11,7 @@ export default function NasaFlowShop() {
     addToCart({
       id: 1,
       name: "Bandelette magnétique NasaFlow",
-      price: 19.90,
+      price: 4.90,
       quantity: 1,
     });
 
@@ -61,7 +61,7 @@ export default function NasaFlowShop() {
               magnétique. Réutilisable, confortable, invisible. Idéale pour le
               sport et le sommeil.
             </p>
-            <p className="nasaflow-price">CHF 19.90</p>
+            <p className="nasaflow-price">CHF 4.90</p>
             <button className="nasaflow-button" onClick={handleAddToCart}>
               Ajouter au panier
             </button>
