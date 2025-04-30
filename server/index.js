@@ -59,8 +59,8 @@ app.post("/create-checkout-session", async (req, res) => {
           },
         },
       ],
-      success_url: "http://localhost:3000/success",
-      cancel_url: "http://localhost:3000/panier",
+      success_url: "https://nasaflow-frontend-amg.vercel.app/success",
+      cancel_url: "https://nasaflow-frontend-amg.vercel.app/panier",
       metadata: {
         rawCart: JSON.stringify(cart),
       },
