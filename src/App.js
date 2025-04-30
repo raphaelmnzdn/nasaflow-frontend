@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import NasaFlowShop from "./NasaFlowShop";
-import CartPage from "./CartPage";
+import CartPage from "./Cartpage";
 import { useCart } from "./CartContext";
 import SuccessPage from "./SuccessPage";
 import AdminPage from "./AdminPage";
