@@ -3,7 +3,7 @@ import { useCart } from "./CartContext";
 import { Link } from "react-router-dom";
 import { loadStripe } from "@stripe/stripe-js";
 
-const stripePromise = loadStripe("pk_live_51RHDZFFKPR2fb0mT4srobIKnhb7oSq3FKzTwaYy5kh5aE2C56IVxV3IB9RSokqDOZesNHn8YabbPVH8PbnWYD17G00eVrodf1y"); // Remplace avec ta clé publique Stripe
+const stripePromise = loadStripe("pk_live_..."); // Mets ta clé Stripe ici
 
 export default function CartPage() {
   const { cart, clearCart } = useCart();
@@ -16,84 +16,65 @@ export default function CartPage() {
       alert("Merci d'entrer votre adresse email.");
       return;
     }
-  
     const stripe = await stripePromise;
-  
     const res = await fetch('https://nasaflow-backend.onrender.com/create-checkout-session', {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ cart, email }),
     });
-  
     const session = await res.json();
-  
     if (session.id) {
       await stripe.redirectToCheckout({ sessionId: session.id });
     } else {
       alert("Erreur de session Stripe.");
       console.error("Session non reçue :", session);
     }
-  };  
+  };
 
   return (
-    <div className="nasaflow-wrapper">
-      <div className="nasaflow-container">
-        <h1 className="nasaflow-title">🛍️ Votre Panier</h1>
-
+    <div className="min-h-screen bg-yellow-50 flex flex-col items-center justify-center font-sans">
+      <div className="bg-white rounded-xl shadow-xl p-8 max-w-lg w-full mt-12">
+        <h1 className="text-3xl font-bold mb-6 text-yellow-500">Votre panier 🛒</h1>
         {cart.length === 0 ? (
-          <p>Votre panier est vide.</p>
+          <div className="text-gray-500 text-lg mb-6">Votre panier est vide.</div>
         ) : (
           <>
-            <ul style={{ marginBottom: "1rem" }}>
+            <ul className="mb-4">
               {cart.map((item, i) => (
-                <li key={i}>
-                  {item.name} – CHF {item.price.toFixed(2)}
+                <li key={i} className="flex justify-between items-center mb-2">
+                  <span>{item.name}</span>
+                  <span>CHF {item.price.toFixed(2)}</span>
                 </li>
               ))}
             </ul>
-
-            <p className="nasaflow-price">Total : CHF {total.toFixed(2)}</p>
-
-            {/* Champ email */}
+            <div className="font-bold text-lg mb-4 text-gray-800">
+              Total : CHF {total.toFixed(2)}
+            </div>
             <input
               type="email"
               placeholder="Votre email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={e => setEmail(e.target.value)}
               required
-              style={{
-                marginBottom: "1rem",
-                padding: "0.75rem",
-                width: "100%",
-                borderRadius: "0.5rem",
-                fontSize: "1rem",
-              }}
+              className="border border-yellow-400 rounded-lg p-2 mb-4 w-full"
             />
-
-            {/* Bouton de paiement */}
-            <button className="nasaflow-button" onClick={handleCheckout}>
+            <button
+              className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 rounded-lg transition mb-2"
+              onClick={handleCheckout}
+            >
               Commander avec Stripe 💳
             </button>
-
             <button
-              className="nasaflow-button"
+              className="w-full bg-gray-200 text-gray-700 py-2 rounded-lg text-sm"
               onClick={clearCart}
-              style={{ marginTop: "1rem", backgroundColor: "#555" }}
             >
               Vider le panier
             </button>
           </>
         )}
-
-        <br />
         <Link
           to="/"
-          className="nasaflow-button"
-          style={{
-            display: "inline-block",
-            marginTop: "1.5rem",
-            textAlign: "center",
-          }}
+          className="block text-center mt-6 text-yellow-500 hover:underline"
         >
           ← Retour à la boutique
         </Link>
