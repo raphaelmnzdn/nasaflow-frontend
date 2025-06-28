@@ -1,38 +1,139 @@
-.App {
-  text-align: center;
+/* App.css */
+
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #7447e1 0%, #181123 100%);
+  color: #ececec;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Navbar */
+.navbar {
+  background: #181123;
+  color: #ececec;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.3em 2em;
+  box-shadow: 0 2px 18px #7447e14d;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #ececec;
+  font-weight: 800;
+  font-size: 1.5em;
+  letter-spacing: 1px;
+  gap: 0.5em;
+}
+
+.logo-img {
+  height: 48px;
+  width: auto;
+  margin-right: 10px;
+  border-radius: 12px;
+  background: #7447e1;
+  border: 2px solid #7447e1;
+  box-shadow: 0 0 10px #7447e1aa;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 2.3em;
+}
+
+nav a {
+  color: #a689fa;
+  font-weight: 600;
+  font-size: 1.1em;
+  padding: 0.3em 0.9em;
+  border-radius: 2em;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+nav a:hover {
+  background: #7447e1;
+  color: #fff;
+}
+
+.cart-badge {
+  background: #7447e1;
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.97em;
+  padding: 0.16em 0.65em;
+  border-radius: 50%;
+  margin-left: 0.44em;
+  vertical-align: middle;
+  box-shadow: 0 1px 7px #7447e175;
+}
+
+.navbar-socials {
+  display: flex;
+  gap: 0.9em;
+  margin-left: 2em;
+}
+.navbar-socials a {
+  color: #7447e1;
+  background: #222034;
+  border-radius: 50%;
+  padding: 0.32em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.16s, color 0.14s;
+}
+.navbar-socials a:hover {
+  color: #fff;
+  background: #7447e1;
+}
+
+@media (max-width: 900px) {
+  .navbar {
+    flex-direction: column;
+    padding: 1em;
+    gap: 1em;
   }
+  nav {
+    gap: 1.1em;
+  }
+  .logo-img { height: 40px; }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Footer */
+.footer {
+  margin-top: 2.4em;
+  background: #181123;
+  color: #a689fa;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 1.8em 0 1.2em 0;
+  font-size: 1.03em;
+  font-weight: 500;
+  border-top: 1px solid #7447e133;
+  box-shadow: 0 -2px 15px #7447e122;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 1.5em;
+  margin-bottom: 0.8em;
+}
+.footer-socials a {
+  color: #7447e1;
+  background: #222034;
+  border-radius: 50%;
+  padding: 0.45em;
+  transition: background 0.18s, color 0.14s;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.footer-socials a:hover {
+  color: #fff;
+  background: #7447e1;
 }

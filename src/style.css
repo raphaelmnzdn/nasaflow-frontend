@@ -1,0 +1,54 @@
+body {
+  background: #FFD600; /* Jaune pétant façon Shopify */
+  color: #111;
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+}
+
+.navbar {
+  background: #fff200;
+  color: #111;
+  padding: 1rem 2rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px 0 #ffeea6;
+}
+
+.nasaflow-title {
+  color: #222;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.nasaflow-button {
+  background: #ffb300;
+  color: #fff;
+  padding: 0.9rem 2.5rem;
+  border: none;
+  border-radius: 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 1rem 0;
+  box-shadow: 0 2px 8px 0 #ffd54f;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.nasaflow-button:hover {
+  background: #ffc107;
+  color: #333;
+}
+
+.nasaflow-card {
+  background: #fff;
+  border-radius: 2rem;
+  box-shadow: 0 2px 16px 0 #ffe082;
+  padding: 2.5rem 2rem;
+}
+
+input[type="email"], input[type="text"] {
+  border-radius: 0.6rem;
+  padding: 1rem;
+  border: 1px solid #ffd600;
+  width: 100%;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}

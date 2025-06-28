@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import logo from "./assets/ton-logo.png"; // Mets ici ton logo
+import logo from "./assets/nasaflow-1.png"; // Mets ici ton logo
 import product1 from "./assets/nasaflow-1.png";
-import product2 from "./assets/nasaflow-2.png";
-import product3 from "./assets/nasaflow-3.png";
+import product2 from "./assets/nasaflow-1.png";
+import product3 from "./assets/nasaflow-1.png";
 import { useCart } from "./CartContext";
 import { Link } from "react-router-dom";
 
