@@ -1,63 +1,85 @@
 .about-wrapper {
   min-height: 100vh;
-  background: #fffbe6;
+  background: linear-gradient(135deg, #7447e1 0%, #1c0746 100%);
+  color: #fff;
   display: flex;
-  align-items: center;
   justify-content: center;
-  font-family: 'Inter', Arial, sans-serif;
+  align-items: flex-start;
+  padding: 3rem 0;
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
 }
+
 .about-container {
-  background: #fff;
-  border-radius: 24px;
-  box-shadow: 0 2px 20px 0 rgba(0,0,0,0.07);
-  padding: 3rem 2.4rem 2rem 2.4rem;
-  max-width: 600px;
-  width: 98%;
-  margin: 50px auto;
+  background: rgba(0,0,0,0.38);
+  border-radius: 1.7rem;
+  box-shadow: 0 8px 32px 0 rgba(42, 15, 90, 0.24);
+  padding: 2.8rem 2rem 2rem 2rem;
+  max-width: 550px;
+  width: 95%;
 }
+
 .about-title {
-  font-size: 2.1rem;
+  color: #fff;
+  font-size: 2.6rem;
   font-weight: 900;
-  color: #ffc600;
-  margin-bottom: 1.3rem;
-}
-.about-desc {
-  font-size: 1.08rem;
   margin-bottom: 1.4rem;
-  color: #444;
+  letter-spacing: 0.5px;
+}
+
+.about-desc {
+  font-size: 1.18rem;
+  margin-bottom: 1.5rem;
+  color: #e1d9fc;
   line-height: 1.8;
 }
-.about-section {
-  margin-bottom: 1.2rem;
-}
+
 .about-section h2 {
-  color: #d7a600;
-  font-size: 1.15rem;
-  font-weight: 700;
-  margin-bottom: .4rem;
-}
-.about-section ul {
-  margin: 0 0 0.6rem 1.1rem;
-  color: #666;
-  padding-left: 0;
-}
-.about-contact {
-  margin: 0.6rem 0;
-}
-.about-contact a { color: #ffc600; text-decoration: underline; }
-.about-socials {
-  display: flex;
-  gap: 1.1rem;
-  margin: 0.5rem 0 0.7rem 0;
-  font-size: 1.5rem;
-}
-.about-socials a { color: #222; transition: color .18s; }
-.about-socials a:hover { color: #ffc600; }
-.about-footer {
-  margin-top: 2.2rem;
-  color: #ffc600;
-  text-align: center;
+  color: #bb9aff;
+  font-size: 1.2rem;
+  margin-bottom: 0.6rem;
   font-weight: 600;
-  font-size: 1.07rem;
-  letter-spacing: 1px;
+}
+
+.about-section ul {
+  padding-left: 1.1rem;
+  margin-bottom: 1.3rem;
+}
+
+.about-section li {
+  margin-bottom: 0.4rem;
+}
+
+.about-contact a {
+  color: #ffe380;
+  font-weight: 500;
+  text-decoration: underline;
+  transition: color 0.17s;
+}
+
+.about-contact a:hover {
+  color: #fff100;
+}
+
+.about-socials {
+  margin-top: 0.7rem;
+  display: flex;
+  gap: 1.2rem;
+}
+
+.about-socials a {
+  color: #ffe380;
+  font-size: 1.8rem;
+  transition: color 0.2s;
+}
+
+.about-socials a:hover {
+  color: #fff;
+}
+
+.about-footer {
+  text-align: center;
+  color: #aa8ffc;
+  margin-top: 1.7rem;
+  font-size: 1.01rem;
+  letter-spacing: 0.6px;
 }

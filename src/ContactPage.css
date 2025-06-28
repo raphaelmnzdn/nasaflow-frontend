@@ -1,45 +1,93 @@
-.contact-wrapper {
-  min-height: 80vh;
+.contact-bg {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #7447e1 0%, #1c0746 100%);
+  color: #fff;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  background: #fffbe6;
+  font-family: 'Montserrat', Arial, sans-serif;
+  padding-top: 5vh;
 }
+
 .contact-container {
-  background: #fff;
-  border-radius: 1.2rem;
-  box-shadow: 0 4px 24px #f5de8b66;
-  padding: 2.3rem 2rem;
-  max-width: 420px;
+  background: rgba(0,0,0,0.30);
+  border-radius: 1.3rem;
+  box-shadow: 0 4px 16px 0 rgba(40,12,90,0.15);
+  padding: 2.2rem 2.2rem 2.7rem 2.2rem;
+  max-width: 430px;
   width: 100%;
+}
+
+.contact-title {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: #ffe380;
+  margin-bottom: 0.7rem;
   text-align: center;
 }
-.contact-title {
-  color: #ffd600;
-  margin-bottom: 1rem;
+
+.contact-desc {
+  font-size: 1.11rem;
+  color: #e3dcfa;
+  margin-bottom: 2.1rem;
+  text-align: center;
 }
-.contact-form label {
-  font-weight: bold;
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  margin: 0.5rem 0 1.2rem 0;
-  padding: 0.8rem;
-  border-radius: 0.7rem;
-  border: 1px solid #f1c40f;
+
+.contact-label {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: #bb9aff;
 }
-.contact-btn {
-  background: #ffd600;
-  color: #333;
-  font-weight: bold;
-  border: none;
-  padding: 0.7rem 1.2rem;
+
+.contact-input,
+.contact-textarea {
+  border: 1.7px solid #ae93fa;
   border-radius: 0.6rem;
+  padding: 0.86rem 1.1rem;
+  font-size: 1.07rem;
+  background: #240855;
+  color: #fff;
+  outline: none;
+  transition: border 0.19s, background 0.14s;
+}
+
+.contact-input:focus,
+.contact-textarea:focus {
+  border-color: #ffe380;
+  background: #2d1192;
+}
+
+.contact-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.contact-btn {
+  background: linear-gradient(90deg, #ffe380 0%, #7447e1 100%);
+  color: #230656;
+  font-weight: 800;
+  font-size: 1.13rem;
+  padding: 0.98rem 0;
+  border: none;
+  border-radius: 0.7rem;
   cursor: pointer;
-  margin-top: 1rem;
-  transition: background 0.2s;
+  margin-top: 0.4rem;
+  transition: background 0.16s, color 0.16s;
 }
 .contact-btn:hover {
-  background: #ffeb3b;
+  background: linear-gradient(90deg, #fff100 0%, #7447e1 100%);
+  color: #7447e1;
+}
+
+.contact-footer {
+  text-align: center;
+  color: #aa8ffc;
+  margin-top: 2.2rem;
+  font-size: 1.03rem;
 }
