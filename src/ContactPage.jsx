@@ -1,74 +1,84 @@
 import React, { useState } from "react";
-import "./ContactPage.css";
+import emailjs from "@emailjs/browser";
+import "./ContactPage.css"; // Assure-toi d'avoir ce fichier
 
 export default function ContactPage() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [sent, setSent] = useState(false);
+  // Tes clés
+  const SERVICE_ID = "service_v254k2c";
+  const TEMPLATE_ID = "template_f61io5u";
+  const PUBLIC_KEY = "rHYlus3TwvwhvTuXK";
 
-  const handleChange = e => {
+  // State pour le formulaire
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [sending, setSending] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
+
+  const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    // Tu peux ici ajouter l'envoi réel (emailjs, formulaire backend, etc)
-    setSent(true);
-    setForm({ name: "", email: "", message: "" });
+    setSending(true);
+    setSuccess(false);
+    setError(false);
+
+    emailjs
+      .send(SERVICE_ID, TEMPLATE_ID, form, PUBLIC_KEY)
+      .then(() => {
+        setSending(false);
+        setSuccess(true);
+        setForm({ name: "", email: "", message: "" });
+      })
+      .catch(() => {
+        setSending(false);
+        setError(true);
+      });
   };
 
   return (
     <div className="contact-bg">
-      <div className="contact-container">
-        <h1 className="contact-title">Contactez Webicy</h1>
+      <div className="contact-card">
+        <h1 className="contact-title">Contacte-nous</h1>
         <p className="contact-desc">
-          Une idée, une question, un projet digital ?<br />Laisse-nous un message, on te répond en 24h.
+          Tu as un projet de site web ou de logiciel ? Discutons-en !<br />
+          Tu peux aussi nous écrire sur <a href="https://www.instagram.com/bewezy/" target="_blank" rel="noopener noreferrer" className="contact-link">Instagram</a> ou <a href="https://www.tiktok.com/@bewezy8" target="_blank" rel="noopener noreferrer" className="contact-link">TikTok</a>.
         </p>
         <form className="contact-form" onSubmit={handleSubmit}>
-          <label className="contact-label">Nom</label>
           <input
-            className="contact-input"
-            name="name"
             type="text"
-            required
-            autoComplete="name"
-            placeholder="Votre nom"
+            name="name"
+            placeholder="Ton nom"
             value={form.name}
             onChange={handleChange}
-          />
-
-          <label className="contact-label">Email</label>
-          <input
-            className="contact-input"
-            name="email"
-            type="email"
             required
-            autoComplete="email"
-            placeholder="Votre adresse mail"
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Ton e-mail"
             value={form.email}
             onChange={handleChange}
-          />
-
-          <label className="contact-label">Message</label>
-          <textarea
-            className="contact-textarea"
-            name="message"
             required
-            placeholder="Décrivez votre besoin, projet, question…"
+          />
+          <textarea
+            name="message"
+            placeholder="Décris ton projet ou pose-nous ta question"
             value={form.message}
             onChange={handleChange}
+            required
+            rows={5}
           />
-
-          <button className="contact-btn" type="submit">
-            Envoyer 🚀
+          <button type="submit" className="contact-btn" disabled={sending}>
+            {sending ? "Envoi en cours..." : "Envoyer"}
           </button>
         </form>
-        {sent && (
-          <div style={{ color: "#ffe380", marginTop: "1.3rem", textAlign: "center" }}>
-            Merci, votre message a bien été envoyé !
-          </div>
-        )}
-        <div className="contact-footer">
-          Ou contactez-nous sur <a href="mailto:contact@webicy.ch" style={{ color: "#ffe380" }}>contact@webicy.ch</a>
+        {success && <div className="contact-success">✅ Merci ! Ton message a bien été envoyé.</div>}
+        {error && <div className="contact-error">❌ Oups, une erreur est survenue. Essaie à nouveau !</div>}
+        <div className="contact-info">
+          Ou écris-nous sur : <br />
+          <b>bewozi@hotmail.com</b>
         </div>
       </div>
     </div>

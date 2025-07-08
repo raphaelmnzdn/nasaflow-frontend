@@ -1,56 +1,62 @@
 import React from "react";
-import "./AboutPage.css"; // à créer si tu veux le style qui suit
-import { FaInstagram, FaTiktok, FaSnapchatGhost } from "react-icons/fa";
+import "./AboutPage.css"; // Pense à mettre à jour ce CSS !
+import { FaInstagram, FaTiktok } from "react-icons/fa";
 
 export default function AboutPage() {
   return (
     <div className="about-wrapper">
       <div className="about-container">
-        <h1 className="about-title">À propos de Webicy</h1>
+        <h1 className="about-title">À propos de <span style={{ color: "#7447e1" }}>Bewezy</span></h1>
         <p className="about-desc">
-          Chez <strong>Webicy</strong>, chaque projet digital mérite une approche unique, sur-mesure et humaine.<br /><br />
-          <b>À l’origine</b>, Webicy proposait des produits innovants. Aujourd’hui, nous avons évolué pour accompagner les entrepreneurs, commerçants et indépendants dans la réussite de leur activité <b>en ligne</b>.<br /><br />
-          <b>Nous créons des sites internet, boutiques en ligne, logiciels sur-mesure et outils digitaux performants</b> – pour booster votre activité, automatiser vos process et rendre votre marque visible.
+          <b>bewezy</b>, c’est la volonté d’offrir à chaque entrepreneur, indépendant ou PME un <span style={{ color: "#7447e1" }}>site internet</span> ou <span style={{ color: "#7447e1" }}>logiciel</span> à la hauteur de ses ambitions.
+          <br /><br />
+          <b>Ma mission</b> : rendre le digital accessible, puissant et sur-mesure pour tous.<br />
+          Je t’accompagne de A à Z : du conseil à la mise en ligne, en passant par le design, le développement et l’optimisation.
         </p>
 
         <div className="about-section">
-          <h2>Nos prestations</h2>
+          <h2>Mes services</h2>
           <ul>
-            <li> Création de sites vitrines modernes et responsives</li>
-            <li> Développement de boutiques en ligne (e-commerce)</li>
-            <li> Développement de logiciels/solutions métier</li>
-            <li> Conseil digital & automatisation</li>
-            <li> Maintenance, hébergement, SEO</li>
+            <li>✨ Création de sites web professionnels & uniques</li>
+            <li>🛒 Développement de boutiques en ligne (e-commerce)</li>
+            <li>⚙️ Logiciels & outils métier personnalisés</li>
+            <li>🚀 SEO, automatisations, intégration d’API</li>
+            <li>💡 Conseils stratégiques, maintenance & support</li>
           </ul>
         </div>
 
         <div className="about-section">
-          <h2>Pourquoi choisir Webicy ?</h2>
+          <h2>Pourquoi choisir bewezy ?</h2>
           <ul>
-            <li> Écoute & accompagnement personnalisé</li>
-            <li> Design unique et moderne</li>
-            <li> Réactivité, transparence & tarifs adaptés</li>
+            <li>✔️ Accompagnement humain, réactif, bienveillant</li>
+            <li>✔️ Design moderne, orienté conversion</li>
+            <li>✔️ Outils simples à gérer, même sans compétences tech</li>
+            <li>✔️ Tarifs transparents, pas de mauvaise surprise</li>
           </ul>
         </div>
 
         <div className="about-section">
-          <h2>Qui se cache derrière Webicy ?</h2>
+          <h2>Qui suis-je ?</h2>
           <p>
-            Je suis <b>Raphaël</b>, passionné de digital et d’entrepreneuriat. J’aide les PME, indépendants et créateurs à réussir sur le web.<br /><br />
-            Discutons de votre projet autour d’un café (virtuel ou réel) !
+            Je m’appelle <b>Raphaël</b> et je suis passionné par le web, le design, l’automatisation et l’entrepreneuriat. <br />
+            J’aide les indépendants et entreprises à faire décoller leur présence digitale et gagner en efficacité grâce à des solutions 100% personnalisées.
           </p>
-          <p className="about-contact">
-            <b>Contact :</b> <a href="mailto:contact@webicy.ch">contact@webicy.ch</a>
+        </div>
+
+        <div className="about-section">
+          <h2>On travaille ensemble ?</h2>
+          <p>
+            Discutons de ton projet autour d’un appel ou d’un café (virtuel ou réel) !<br />
+            <b>Contact</b> : <a href="mailto:bewozi@hotmail.com">bewozi@hotmail.com</a>
           </p>
           <div className="about-socials">
-            <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
-            <a href="https://tiktok.com/" target="_blank" rel="noopener noreferrer"><FaTiktok /></a>
-            <a href="https://snapchat.com/" target="_blank" rel="noopener noreferrer"><FaSnapchatGhost /></a>
+            <a href="https://www.instagram.com/bewezy/" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
+            <a href="https://www.tiktok.com/@bewezy8" target="_blank" rel="noopener noreferrer"><FaTiktok /></a>
           </div>
         </div>
 
         <div className="about-footer">
-          Webicy – Créateur de solutions digitales sur-mesure
+          bewezy – Créateur de solutions digitales sur-mesure
         </div>
       </div>
     </div>

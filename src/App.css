@@ -1,139 +1,123 @@
-/* App.css */
-
 body {
   margin: 0;
-  background: linear-gradient(135deg, #7447e1 0%, #181123 100%);
-  color: #ececec;
-  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  padding: 0;
+  font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(120deg, #21123d 0%, #1c1430 60%, #090612 100%);
+  min-height: 100vh;
+  color: #ece6ff;
 }
 
-/* Navbar */
+/* NAVBAR */
 .navbar {
-  background: #181123;
-  color: #ececec;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 1.3em 2em;
-  box-shadow: 0 2px 18px #7447e14d;
+  justify-content: space-between;
+  background: rgba(34, 18, 56, 0.96);
+  padding: 1.1em 2em 1.1em 2em;
+  border-bottom: 2px solid #7447e1;
+  position: sticky;
+  top: 0;
+  z-index: 20;
 }
 
 .logo {
   display: flex;
   align-items: center;
+  gap: 0.7em;
+  font-size: 1.45em;
+  font-weight: 700;
   text-decoration: none;
-  color: #ececec;
-  font-weight: 800;
-  font-size: 1.5em;
-  letter-spacing: 1px;
-  gap: 0.5em;
+  color: #7447e1;
+  letter-spacing: -1.5px;
+  transition: color .2s;
 }
-
+.logo:hover {
+  color: #bfaaff;
+}
 .logo-img {
-  height: 48px;
-  width: auto;
-  margin-right: 10px;
-  border-radius: 12px;
-  background: #7447e1;
-  border: 2px solid #7447e1;
-  box-shadow: 0 0 10px #7447e1aa;
+  height: 36px;
+  margin-right: 6px;
 }
 
-nav {
+/* Navbar links */
+.navbar nav {
   display: flex;
   align-items: center;
-  gap: 2.3em;
+  gap: 2.1em;
 }
-
-nav a {
-  color: #a689fa;
-  font-weight: 600;
-  font-size: 1.1em;
-  padding: 0.3em 0.9em;
-  border-radius: 2em;
+.navbar nav a {
+  color: #ece6ff;
   text-decoration: none;
-  transition: background 0.15s, color 0.15s;
+  font-weight: 500;
+  font-size: 1.11em;
+  position: relative;
+  transition: color 0.2s;
 }
-nav a:hover {
-  background: #7447e1;
-  color: #fff;
-}
-
-.cart-badge {
-  background: #7447e1;
-  color: #fff;
-  font-weight: bold;
-  font-size: 0.97em;
-  padding: 0.16em 0.65em;
-  border-radius: 50%;
-  margin-left: 0.44em;
-  vertical-align: middle;
-  box-shadow: 0 1px 7px #7447e175;
+.navbar nav a:hover {
+  color: #a689fa;
 }
 
+/* Navbar Socials */
 .navbar-socials {
   display: flex;
-  gap: 0.9em;
-  margin-left: 2em;
+  align-items: center;
+  gap: 1em;
+  margin-left: 1em;
 }
 .navbar-socials a {
-  color: #7447e1;
-  background: #222034;
-  border-radius: 50%;
-  padding: 0.32em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.16s, color 0.14s;
+  color: #bfaaff;
+  transition: color .16s;
 }
 .navbar-socials a:hover {
   color: #fff;
-  background: #7447e1;
 }
 
-@media (max-width: 900px) {
-  .navbar {
-    flex-direction: column;
-    padding: 1em;
-    gap: 1em;
-  }
-  nav {
-    gap: 1.1em;
-  }
-  .logo-img { height: 40px; }
-}
-
-/* Footer */
+/* FOOTER */
 .footer {
-  margin-top: 2.4em;
-  background: #181123;
-  color: #a689fa;
+  background: linear-gradient(120deg, #140a24 0%, #22103d 100%);
+  border-top: 2px solid #7447e1;
+  padding: 2.2em 1em 1.5em 1em;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1.8em 0 1.2em 0;
-  font-size: 1.03em;
-  font-weight: 500;
-  border-top: 1px solid #7447e133;
-  box-shadow: 0 -2px 15px #7447e122;
+  margin-top: 5em;
 }
-
 .footer-socials {
   display: flex;
-  gap: 1.5em;
-  margin-bottom: 0.8em;
+  gap: 1.6em;
+  margin-bottom: 0.5em;
 }
 .footer-socials a {
-  color: #7447e1;
-  background: #222034;
-  border-radius: 50%;
-  padding: 0.45em;
-  transition: background 0.18s, color 0.14s;
+  color: #222; /* noir */
+  transition: color 0.25s;
+  font-size: 1.7rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .footer-socials a:hover {
-  color: #fff;
-  background: #7447e1;
+  color: #ffd600; /* jaune du site */
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1em;
+    padding: 1em 0.6em;
+  }
+  .logo-img {
+    height: 30px;
+  }
+  .navbar nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.3em;
+    width: 100%;
+  }
+  .footer {
+    padding: 1.5em 0.3em 1.1em 0.3em;
+    font-size: 0.98em;
+  }
 }
