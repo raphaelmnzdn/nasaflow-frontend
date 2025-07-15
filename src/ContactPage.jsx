@@ -1,5 +1,8 @@
+
+
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
+import "./ContactPage.css"; // Assure-toi d'avoir ce fichier
 
 const SERVICE_ID = "service_v254k2c";
 const TEMPLATE_ID = "template_wg76i5p";
