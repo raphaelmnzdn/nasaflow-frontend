@@ -5,7 +5,7 @@ import "./ContactPage.css"; // Assure-toi d'avoir ce fichier
 export default function ContactPage() {
   // Tes clés
   const SERVICE_ID = "service_v254k2c";
-  const TEMPLATE_ID = "template_f61io5u";
+  const TEMPLATE_ID = "template_wg76i5p";
   const PUBLIC_KEY = "rHYlus3TwvwhvTuXK";
 
   // State pour le formulaire
