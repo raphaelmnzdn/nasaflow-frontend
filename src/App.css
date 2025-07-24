@@ -1,88 +1,88 @@
 body {
   margin: 0;
-  padding: 0;
-  font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   background: linear-gradient(120deg, #21123d 0%, #1c1430 60%, #090612 100%);
-  min-height: 100vh;
   color: #ece6ff;
+  min-height: 100vh;
 }
 
-/* NAVBAR */
+/* Navbar */
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
   background: rgba(34, 18, 56, 0.96);
-  padding: 1.1em 1.5em;
+  padding: 1em 1.5em;
   border-bottom: 2px solid #7447e1;
   position: sticky;
   top: 0;
-  z-index: 20;
+  z-index: 1000;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  font-size: 1.4em;
-  font-weight: 700;
-  text-decoration: none;
+  gap: 0.5em;
   color: #7447e1;
-}
-.logo:hover {
-  color: #bfaaff;
-}
-.logo-img {
-  height: 36px;
-  margin-right: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.4rem;
 }
 
-/* NAVIGATION LINKS */
+.logo-img {
+  height: 32px;
+}
+
+/* Navigation */
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 2em;
+  gap: 1.5em;
 }
+
 .nav-links a {
-  color: #ece6ff;
   text-decoration: none;
-  font-size: 1em;
+  color: #ece6ff;
   font-weight: 500;
 }
-.nav-links a:hover {
-  color: #a689fa;
-}
 
-/* SOCIALS */
-.navbar-socials {
-  display: flex;
-  gap: 1em;
-}
 .navbar-socials a {
   color: #bfaaff;
-  font-size: 1.2em;
-}
-.navbar-socials a:hover {
-  color: #fff;
+  margin-left: 0.5em;
+  font-size: 1.2rem;
 }
 
-/* RESPONSIVE */
+/* Hamburger (mobile) */
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #ece6ff;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1em;
+  .hamburger {
+    display: block;
   }
 
   .nav-links {
+    display: none;
     flex-direction: column;
-    align-items: flex-start;
     width: 100%;
-    gap: 0.8em;
+    margin-top: 1em;
   }
 
-  .navbar-socials {
-    margin-top: 0.8em;
-    justify-content: flex-start;
+  .menu-toggle:checked + .hamburger + .nav-links {
+    display: flex;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
