@@ -4,31 +4,54 @@ import { Link } from "react-router-dom";
 import { loadStripe } from "@stripe/stripe-js";
 import "./CartPage.css"; // en haut du fichier
 
-const stripePromise = loadStripe("pk_live_51RHDZFFKPR2fb0mT4srobIKnhb7oSq3FKzTwaYy5kh5aE2C56IVxV3IB9RSokqDOZesNHn8YabbPVH8PbnWYD17G00eVrodf1y"); // Remplace avec ta clé publique Stripe
+const STRIPE_PUBLIC_KEY = process.env.REACT_APP_STRIPE_PUBLIC_KEY;
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "https://nasaflow-backend.onrender.com";
+const stripePromise = STRIPE_PUBLIC_KEY ? loadStripe(STRIPE_PUBLIC_KEY) : null;
 
 export default function CartPage() {
   const { cart, clearCart } = useCart();
   const [email, setEmail] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const total = cart.reduce((sum, item) => sum + item.price * (item.quantity || 1), 0);
 
   const handleCheckout = async () => {
     if (!email) {
       alert("Merci d'entrer votre adresse email.");
       return;
     }
-    const stripe = await stripePromise;
-    const res = await fetch('https://nasaflow-backend.onrender.com/create-checkout-session', {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ cart, email }),
-    });
-    const session = await res.json();
-    if (session.id) {
-      await stripe.redirectToCheckout({ sessionId: session.id });
-    } else {
-      alert("Erreur de session Stripe.");
-      console.error("Session non reçue :", session);
+    if (!STRIPE_PUBLIC_KEY) {
+      alert("Configuration Stripe manquante. Ajoute REACT_APP_STRIPE_PUBLIC_KEY dans ton .env.");
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      const stripe = await stripePromise;
+      if (!stripe) {
+        throw new Error("Stripe n'a pas pu etre initialise.");
+      }
+
+      const res = await fetch(`${API_BASE_URL}/create-checkout-session`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ cart, email }),
+      });
+
+      const session = await res.json();
+      if (!res.ok || !session.id) {
+        throw new Error(session.error || "Session Stripe non recue.");
+      }
+
+      const { error } = await stripe.redirectToCheckout({ sessionId: session.id });
+      if (error) {
+        throw new Error(error.message);
+      }
+    } catch (err) {
+      alert("Erreur lors du paiement Stripe.");
+      console.error(err);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -61,8 +84,8 @@ export default function CartPage() {
             required
             className="cart-input"
           />
-          <button className="cart-btn-stripe" onClick={handleCheckout}>
-            Commander avec Stripe 💳
+          <button className="cart-btn-stripe" onClick={handleCheckout} disabled={isLoading}>
+            {isLoading ? "Redirection..." : "Commander avec Stripe"}
           </button>
           <button className="cart-btn-clear" onClick={clearCart}>
             Vider le panier

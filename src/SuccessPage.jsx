@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useCart } from "./CartContext";
 import "./NasaFlowShop.css";
 
 export default function SuccessPage() {
+  const { clearCart } = useCart();
+
+  useEffect(() => {
+    clearCart();
+  }, [clearCart]);
+
   return (
     <div className="nasaflow-wrapper">
       <div className="nasaflow-container" style={{ textAlign: "center" }}>
