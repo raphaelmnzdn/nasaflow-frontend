@@ -38,6 +38,16 @@ const plans = [
       "Formation de prise en main",
     ],
   },
+  {
+    id: "consultation-lancement",
+    name: "Consultation / conseil de lancement",
+    price: 10,
+    details: [
+      "Appel de cadrage rapide",
+      "Conseils pour bien lancer ton site",
+      "Recommandations sur l'offre et le contenu",
+    ],
+  },
 ];
 
 export default function TarifsPage() {
