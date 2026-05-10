@@ -3,6 +3,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import NasaFlowShop from "./NasaFlowShop";
 import AboutPage from "./AboutPage";
 import ContactPage from "./ContactPage";
+import TarifsPage from "./TarifsPage";
 import CartPage from "./CartPage";
 import SuccessPage from "./SuccessPage";
 import CancelPage from "./CancelPage";
@@ -23,6 +24,7 @@ function App() {
           <img src={logo} alt="Logo Bewezy" className="logo-img"/>
         </Link>
         <nav>
+          <Link to="/tarifs">Tarifs</Link>
           <Link to="/a-propos">À propos</Link>
           <Link to="/contact">Contact</Link>
           <Link to="/panier">Panier ({cartCount})</Link>
@@ -38,6 +40,7 @@ function App() {
       </header>
       <Routes>
         <Route path="/" element={<NasaFlowShop />} />
+        <Route path="/tarifs" element={<TarifsPage />} />
         <Route path="/a-propos" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/panier" element={<CartPage />} />

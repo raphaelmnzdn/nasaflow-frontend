@@ -5,6 +5,28 @@ import { useNavigate } from "react-router-dom";
 
 
 export default function NasaFlowShop() {
+  const services = [
+    {
+      title: "Sites vitrines",
+      text: "Une présence en ligne claire, crédible et pensée pour convertir.",
+    },
+    {
+      title: "E-commerce",
+      text: "Une boutique fluide avec panier, paiement et parcours d'achat simple.",
+    },
+    {
+      title: "Automatisation",
+      text: "Des tâches répétitives simplifiées avec des outils sur-mesure.",
+    },
+  ];
+
+  const process = [
+    "On définit le besoin et le périmètre",
+    "Je conçois le design et l'expérience",
+    "Je développe, teste et mets en ligne",
+    "Je reste disponible pour le suivi",
+  ];
+
   // Liste d’avis clients (en mémoire)
   const [reviews, setReviews] = useState([
     { name: "Emma", text: "Bewezy a compris mes besoins et livré un site magnifique en un temps record !", stars: 5 },
@@ -40,53 +62,118 @@ export default function NasaFlowShop() {
 
   return (
     <main className="bewezy-bg">
-      {/* HERO */}
       <section className="bewezy-hero">
-        <h1 className="bewezy-title">
-          <span className="accent">Bewezy</span><br />
-          Développons votre présence en ligne.
-        </h1>
-        <p className="bewezy-subtitle">
-          Création de sites internet, boutiques e-commerce, logiciels & solutions digitales sur-mesure.<br />
-          Faites confiance à <b>Bewezy</b> pour propulser votre activité grâce à une expérience digitale moderne, fluide, performante.
-        </p>
-        <ul className="bewezy-benefits">
-          <li>✓ Sites vitrines & e-commerce modernes, adaptatifs et performants</li>
-          <li>✓ Automatisation, solutions métier & développement spécifique</li>
-          <li>✓ Conseils personnalisés, accompagnement humain</li>
-          <li>✓ Maintenance, sécurité, SEO inclus</li>
-        </ul>
-        <button className="bewezy-btn" onClick={() => navigate("/contact")}>
-          Discuter de mon projet 🚀
-        </button>
-        
+        <div className="bewezy-hero-copy">
+          <span className="bewezy-kicker">Agence web & digital sur-mesure</span>
+          <h1 className="bewezy-title">
+            Des sites plus beaux, plus clairs, et surtout plus efficaces.
+          </h1>
+          <p className="bewezy-subtitle">
+            Bewezy conçoit des sites vitrines, boutiques en ligne et outils métier pensés pour donner une image plus professionnelle et faire avancer ton activité.
+          </p>
+          <div className="bewezy-hero-actions">
+            <button className="bewezy-btn" onClick={() => navigate("/tarifs")}>
+              Voir les tarifs
+            </button>
+            <Link to="/contact" className="bewezy-btn secondary">
+              Me contacter
+            </Link>
+          </div>
+
+          <ul className="bewezy-benefits">
+            <li>Sites vitrines modernes et responsives</li>
+            <li>Boutiques e-commerce avec panier et Stripe</li>
+            <li>Automatisations, SEO et support personnalisé</li>
+          </ul>
+        </div>
+
+        <div className="bewezy-hero-card">
+          <div className="bewezy-hero-card-top">
+            <span>Ce que tu gagnes</span>
+            <strong>Une présence plus solide</strong>
+          </div>
+          <div className="bewezy-stat-grid">
+            <div className="bewezy-stat">
+              <strong>01</strong>
+              <span>Site clair et crédible</span>
+            </div>
+            <div className="bewezy-stat">
+              <strong>02</strong>
+              <span>Meilleure conversion</span>
+            </div>
+            <div className="bewezy-stat">
+              <strong>03</strong>
+              <span>Expérience mobile fluide</span>
+            </div>
+          </div>
+        </div>
       </section>
 
-      {/* ARGUMENTAIRE */}
+      <section className="bewezy-strip">
+        <div>
+          <span>Approche</span>
+          <strong>Design propre + technique fiable</strong>
+        </div>
+        <div>
+          <span>Livraison</span>
+          <strong>Du besoin jusqu'à la mise en ligne</strong>
+        </div>
+        <div>
+          <span>Résultat</span>
+          <strong>Un site qui inspire confiance</strong>
+        </div>
+      </section>
+
+      <section className="bewezy-services">
+        <div className="bewezy-section-head">
+          <h2>Ce que je peux construire pour toi</h2>
+          <p>Des solutions utiles, élégantes et pensées pour ton activité.</p>
+        </div>
+        <div className="bewezy-service-grid">
+          {services.map((service) => (
+            <article className="bewezy-service-card" key={service.title}>
+              <h3>{service.title}</h3>
+              <p>{service.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="bewezy-argument">
-        <h2>Votre réussite, notre priorité</h2>
-        <p>
-          Bewezy vous accompagne de A à Z : de l’idée à la mise en ligne, en passant par le conseil, le design et le développement sur-mesure.<br />
-          Notre différence ? <b>Un suivi humain, une transparence totale et une expertise technique</b> pour chaque projet.<br /><br />
-          Notre objectif : <b>vous simplifier le digital</b>, tout en boostant votre image, votre chiffre d’affaires et votre liberté.
-        </p>
+        <div className="bewezy-section-head left">
+          <h2>Une méthode simple, sans friction</h2>
+          <p>On avance vite, avec une vision claire et des échanges concrets.</p>
+        </div>
+        <div className="bewezy-process">
+          {process.map((step, index) => (
+            <div className="bewezy-process-step" key={step}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <p>{step}</p>
+            </div>
+          ))}
+        </div>
       </section>
 
-      {/* POURQUOI CHOISIR BEWEZY */}
       <section className="bewezy-why">
-        <h2>Pourquoi choisir <span className="accent">Bewezy</span> ?</h2>
-        <ul>
-          <li><b>Expertise</b> & créativité sur chaque projet</li>
-          <li><b>Design</b> unique, adapté à votre image</li>
-          <li><b>Réactivité</b> & suivi personnalisé</li>
-          <li><b>Transparence</b> sur les tarifs et les délais</li>
-          <li><b>Solutions évolutives</b>, prêtes à booster votre activité</li>
+        <div className="bewezy-section-head left">
+          <h2>Pourquoi choisir Bewezy ?</h2>
+          <p>Une approche plus humaine, plus propre et plus orientée résultat.</p>
+        </div>
+        <ul className="bewezy-why-list">
+          <li>Expertise et créativité sur chaque projet</li>
+          <li>Design unique, adapté à ton image</li>
+          <li>Réactivité et suivi personnalisé</li>
+          <li>Tarifs transparents, sans surprise</li>
+          <li>Solutions évolutives, prêtes à grandir avec toi</li>
         </ul>
       </section>
 
       {/* AVIS CLIENTS */}
       <section className="bewezy-reviews">
-        <h2>Ils nous ont fait confiance</h2>
+        <div className="bewezy-section-head">
+          <h2>Ils nous ont fait confiance</h2>
+          <p>Quelques retours de clients et projets accompagnés.</p>
+        </div>
         <div className="bewezy-review-list">
           {reviews.slice(0).reverse().map((r, idx) => (
             <div className="bewezy-review" key={idx}>
@@ -138,7 +225,9 @@ export default function NasaFlowShop() {
       <section className="bewezy-contact-cta">
         <div className="bewezy-cta-inner">
           <div className="bewezy-cta-content">
-            <h2>Besoin d’un site ? D’un logiciel ? Parlons-en.</h2>
+            <span className="bewezy-kicker">Projet sur-mesure</span>
+            <h2>Besoin d’un site ou d’un outil plus pro ? Parlons-en.</h2>
+            <p>Je t’aide à clarifier ton besoin et à construire une solution propre, utile et facile à faire évoluer.</p>
             <Link to="/contact" className="bewezy-cta-btn">
               Contactez Bewezy
             </Link>
