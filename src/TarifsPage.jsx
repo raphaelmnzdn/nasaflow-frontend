@@ -48,6 +48,36 @@ const plans = [
       "Recommandations sur l'offre et le contenu",
     ],
   },
+  {
+    id: "pack-essentiel-100",
+    name: "Pack Essentiel",
+    price: 100,
+    details: [
+      "Audit rapide de ton besoin",
+      "Conseils de structure et de contenu",
+      "Base de lancement simple",
+    ],
+  },
+  {
+    id: "pack-plus-200",
+    name: "Pack Plus",
+    price: 200,
+    details: [
+      "Conseil plus approfondi",
+      "Recommandations sur le design et les pages",
+      "Plan d'action clair pour démarrer",
+    ],
+  },
+  {
+    id: "pack-pro-300",
+    name: "Pack Pro",
+    price: 300,
+    details: [
+      "Accompagnement de lancement avancé",
+      "Orientation branding, contenu et conversion",
+      "Priorité de traitement",
+    ],
+  },
 ];
 
 export default function TarifsPage() {
